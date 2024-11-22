@@ -10,7 +10,15 @@ import { Image } from "react-native";
 import logo from "../assets/image1.png";
 import googleLogo from "../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
-const LoginScreen = () => {
+import { NavigationProp } from "@react-navigation/native";
+type LoginScreenProps = {
+  navigation: NavigationProp<any>;
+};
+
+const LoginScreen = ({ navigation }: LoginScreenProps) => {
+  const handleLogin = () => {
+    navigation.navigate("HomeTab");
+  };
   return (
     <View style={[styles.root]}>
       <Image source={logo} style={[styles.imgae]} />
@@ -43,7 +51,7 @@ const LoginScreen = () => {
             <Text style={[styles.clickHereText]}>Click here</Text>
           </TouchableOpacity>
         </Text>
-        <TouchableOpacity style={[styles.loginContainer]}>
+        <TouchableOpacity style={[styles.loginContainer]} onPress={handleLogin}>
           <Text style={[styles.loginText]}>Log in</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.signInGGContainer]}>
