@@ -7,27 +7,20 @@ import {
 } from "react-native";
 import React from "react";
 import { Image } from "react-native";
-import logo from "../assets/image1.png";
+import logo from "../assets/IMG_1572 2.png";
 import googleLogo from "../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
-type LoginScreenProps = {
-  navigation: NavigationProp<any>;
-};
-
-const LoginScreen = ({ navigation }: LoginScreenProps) => {
+const RegisterScreen = () => {
   const nav = useNavigation();
-  const handleLogin = () => {
-    navigation.navigate("HomeTab");
-  };
   return (
     <View style={[styles.root]}>
       <Image source={logo} style={[styles.imgae]} />
       <Text style={[styles.title, { color: "#55AD9B" }]}>
-        Welcome to{" "}
-        <Text style={[styles.title, { color: "#FC5A78" }]}>Vocake</Text>!
+        Create an{" "}
+        <Text style={[styles.title, { color: "#FC5A78" }]}>account!</Text>
       </Text>
       <View style={[styles.container]}>
         <View style={[styles.inptutContainer]}>
@@ -46,31 +39,35 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
           />
           <AntDesign name="lock" size={18} color="gray" />
         </View>
+        <View style={[styles.inptutContainer]}>
+          <TextInput
+            style={[styles.input]}
+            placeholder="Confirm your password"
+            placeholderTextColor="gray"
+          />
+          <AntDesign name="lock" size={18} color="gray" />
+        </View>
       </View>
       <View style={[styles.container]}>
-        <View style={[styles.clickHereContainer]}>
-          <Text style={[styles.forgotText]}>Forgot password? </Text>
-          <TouchableOpacity
-            onPress={() => {
-              nav.navigate("Register" as never);
-            }}
-          >
-            <Text style={[styles.clickHereText]}>Click here</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={[styles.loginContainer]} onPress={handleLogin}>
-          <Text style={[styles.loginText]}>Log in</Text>
+        <TouchableOpacity style={[styles.signUpContainer]}>
+          <Text style={[styles.signUpText]}>Sign Up</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.signInGGContainer]}>
-          <Image source={googleLogo} style={[styles.googleLogo]} />
-          <Text>Sign in with Google</Text>
+        <TouchableOpacity
+          style={[styles.signUpContainer]}
+          onPress={() => {
+            nav.navigate("LoginScreen" as never);
+          }}
+        >
+          <Text style={[styles.signUpText]}>
+            Already have an account? Sign In
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   root: {
@@ -78,15 +75,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-  },
-  imgae: {
-    width: 100,
-    height: 100,
+    gap: 20,
   },
   title: {
     fontWeight: "medium",
     fontSize: 30,
     margin: 10,
+  },
+  imgae: {
+    width: 100,
+    height: 100,
   },
   input: { flex: 1 },
   inptutContainer: {
@@ -107,38 +105,15 @@ const styles = StyleSheet.create({
     width: "90%",
     gap: 20,
   },
-  loginText: {
-    color: "black",
+  signUpText: {
+    color: "white",
     fontWeight: "bold",
   },
-  loginContainer: {
+  signUpContainer: {
     borderRadius: 20,
-    backgroundColor: "#FCBC05",
+    backgroundColor: "#55AD9B",
     width: "100%",
     alignItems: "center",
     padding: 10,
-  },
-  signInGGContainer: {
-    borderWidth: 1,
-    borderRadius: 20,
-    padding: 10,
-    alignItems: "center",
-    borderColor: "gray",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 10,
-  },
-  forgotText: {},
-  clickHereText: { color: "#C2A226", fontWeight: "bold" },
-  googleLogo: {
-    height: 20,
-    width: 20,
-  },
-  clickHereContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 10,
   },
 });
