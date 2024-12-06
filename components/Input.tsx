@@ -30,7 +30,7 @@ export const Input = ({
           alignItems: "center",
           justifyContent: "center",
           border: errorMessage ? "red solid 1px" : "#8c8a8a solid 1px",
-          width: "100%",
+          width: "s100%",
           borderRadius: "50px",
           padding: "10px",
           "& input": {
