@@ -8,9 +8,7 @@ import {
 import React from "react";
 import { Image } from "react-native";
 import logo from "../assets/IMG_1572 2.png";
-import googleLogo from "../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
 const RegisterScreen = () => {
@@ -49,7 +47,12 @@ const RegisterScreen = () => {
         </View>
       </View>
       <View style={[styles.container]}>
-        <TouchableOpacity style={[styles.signUpContainer]}>
+        <TouchableOpacity
+          onPress={() => {
+            nav.navigate("Onboard" as never);
+          }}
+          style={[styles.signUpContainer]}
+        >
           <Text style={[styles.signUpText]}>Sign Up</Text>
         </TouchableOpacity>
         <TouchableOpacity
