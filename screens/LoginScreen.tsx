@@ -19,9 +19,15 @@ type LoginScreenProps = {
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const nav = useNavigation();
+
   const handleLogin = () => {
     navigation.navigate("HomeTab");
   };
+
+  const handleSignUp = () => {
+    nav.navigate("Register" as never);
+  };
+
   return (
     <View style={[styles.root]}>
       <Image source={logo} style={[styles.imgae]} />
@@ -49,14 +55,14 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
       </View>
       <View style={[styles.container]}>
         <View style={[styles.clickHereContainer]}>
-          <Text style={[styles.forgotText]}>Forgot password? </Text>
-          <TouchableOpacity
-            onPress={() => {
-              nav.navigate("Register" as never);
-            }}
+          <View
+            style={[{ width: "100%", display: "flex", flexDirection: "row" }]}
           >
-            <Text style={[styles.clickHereText]}>Click here</Text>
-          </TouchableOpacity>
+            <Text style={[styles.forgotText]}>Forgot password? </Text>
+            <TouchableOpacity>
+              <Text style={[styles.clickHereText]}>Click here</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <TouchableOpacity style={[styles.loginContainer]} onPress={handleLogin}>
           <Text style={[styles.loginText]}>Log in</Text>
@@ -64,6 +70,13 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
         <TouchableOpacity style={[styles.signInGGContainer]}>
           <Image source={googleLogo} style={[styles.googleLogo]} />
           <Text>Sign in with Google</Text>
+        </TouchableOpacity>
+        <Text>Or</Text>
+        <TouchableOpacity
+          style={[styles.signUpContainer]}
+          onPress={handleSignUp}
+        >
+          <Text style={[styles.loginText]}>Sign up</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -106,6 +119,8 @@ const styles = StyleSheet.create({
   container: {
     width: "90%",
     gap: 20,
+    display: "flex",
+    alignItems: "center",
   },
   loginText: {
     color: "black",
@@ -114,6 +129,13 @@ const styles = StyleSheet.create({
   loginContainer: {
     borderRadius: 20,
     backgroundColor: "#FCBC05",
+    width: "100%",
+    alignItems: "center",
+    padding: 10,
+  },
+  signUpContainer: {
+    borderRadius: 20,
+    backgroundColor: "#55AD9B",
     width: "100%",
     alignItems: "center",
     padding: 10,
@@ -128,6 +150,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     gap: 10,
+    width: "100%",
   },
   forgotText: {},
   clickHereText: { color: "#C2A226", fontWeight: "bold" },
