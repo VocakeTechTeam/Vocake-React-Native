@@ -2,13 +2,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import ProfileScreen from "./screens/profile/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Feather from "@expo/vector-icons/Feather";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import Onboard from "./screens/Onboard";
+import Onboard from "./screens/onboard";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 

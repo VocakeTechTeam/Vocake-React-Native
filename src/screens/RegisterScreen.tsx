@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Image } from "react-native";
-import logo from "../assets/IMG_1572 2.png";
+import logo from "../../assets/IMG_1572 2.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 

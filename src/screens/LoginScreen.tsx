@@ -7,8 +7,8 @@ import {
 } from "react-native";
 import React from "react";
 import { Image } from "react-native";
-import logo from "../assets/image1.png";
-import googleLogo from "../assets/google.png";
+import logo from "../../assets/image1.png";
+import googleLogo from "../../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
