@@ -1,0 +1,14 @@
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+
+const DictionaryScreen = () => {
+  return (
+    <View>
+      <Text>DictionaryScreen</Text>
+    </View>
+  );
+};
+
+export default DictionaryScreen;
+
+const styles = StyleSheet.create({});
