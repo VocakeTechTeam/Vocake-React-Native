@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import logo from "../assets/image1.png";
+import logo from "../../assets/image1.png";
 import { Image } from "react-native";
 
 const HomeScreen = () => {

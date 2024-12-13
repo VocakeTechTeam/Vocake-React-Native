@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Navigator } from "./Navigator";
+import { Navigator } from "./src/Navigator";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {

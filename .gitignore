@@ -23,10 +23,12 @@ web-build/
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+yarn.lock
 
 # macOS
 .DS_Store
 *.pem
+
 
 # local env files
 .env*.local
