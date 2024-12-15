@@ -9,6 +9,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Feather from "@expo/vector-icons/Feather";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Onboard from "./screens/onboard";
+import DictionaryScreen from "./screens/DictionaryScreen";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -21,16 +22,16 @@ const BottomTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Word"
+        name="Dictionary"
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons name="notebook" size={24} color="black" />
           ),
         }}
-        component={HomeScreen}
+        component={DictionaryScreen}
       />
       <Tab.Screen
-        name="Category"
+        name="My List"
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="category" size={24} color="black" />
@@ -39,7 +40,7 @@ const BottomTabNavigator = () => {
         component={ProfileScreen}
       />
       <Tab.Screen
-        name="Community"
+        name="Explore"
         options={{
           tabBarIcon: () => <Feather name="globe" size={24} color="black" />,
         }}

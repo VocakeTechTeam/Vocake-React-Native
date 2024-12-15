@@ -12,12 +12,15 @@ import googleLogo from "../../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import Config from "react-native-config";
 
 type LoginScreenProps = {
   navigation: NavigationProp<any>;
 };
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
+  const REACT_APP_VOCAKE_API = Config.REACT_APP_VOCAKE_API;
+
   const nav = useNavigation();
 
   const handleLogin = () => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, ListTile, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, ListTile, StyleSheet } from "react-native";
 
 interface ProfileItemProps {
   email: string;
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   listTile: {
-    backgroundColor: '#FFC470', // Replace with your theme color
+    backgroundColor: "#FFC470", // Replace with your theme color
     borderRadius: 8,
   },
 });

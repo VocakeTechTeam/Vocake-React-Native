@@ -1,6 +1,6 @@
 // ListTile.tsx
-import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
 interface ListTileProps {
   title: string;
@@ -18,7 +18,10 @@ const ListTile: React.FC<ListTileProps> = ({
   selected = false,
 }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.container, selected && styles.selected]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.container, selected && styles.selected]}
+    >
       <View style={styles.iconContainer}>{icon}</View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -30,14 +33,14 @@ const ListTile: React.FC<ListTileProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 16,
     borderRadius: 8,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
   selected: {
-    backgroundColor: '#f0f0f0', // Change to your selected color
+    backgroundColor: "#f0f0f0", // Change to your selected color
   },
   iconContainer: {
     marginRight: 16,
@@ -46,12 +49,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   subtitle: {
     fontSize: 14,
-    color: 'gray',
+    color: "gray",
   },
 });
 

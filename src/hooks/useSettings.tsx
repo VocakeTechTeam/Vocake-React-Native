@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface UseSettings {
   getCurrentEmail: () => string;
 }
 
 const useSettings = (): UseSettings => {
-  const [email, setEmail] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
 
   useEffect(() => {
     const fetchEmail = async () => {
@@ -20,7 +20,7 @@ const useSettings = (): UseSettings => {
     // Simulate an async operation, e.g., fetching from local storage or an API
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve('user@example.com'); // Example email
+        resolve("user@example.com"); // Example email
       }, 1000);
     });
   };

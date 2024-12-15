@@ -5,4 +5,11 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        paths: ["node_modules", "./src"], // Add your source path if needed
+      },
+    },
+  },
 };
