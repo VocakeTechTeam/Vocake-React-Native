@@ -10,11 +10,34 @@ import { Image } from "react-native";
 import logo from "../../assets/IMG_1572 2.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
-
+import VerificationModal from "../components/VerificationModal";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 const RegisterScreen = () => {
   const nav = useNavigation();
+  const { fakeLogIn } = useAuth();
+  const [isVerification, setIsverification] = useState(false);
+  const handleClosVerificationModal = () => {
+    setIsverification(false);
+    nav.navigate("Onboard" as never);
+  };
+  const handleSignUp = () => {
+    setIsverification(true);
+  };
   return (
     <View style={[styles.root]}>
+      {isVerification ? (
+        <>
+          <View style={styles.overlay} />
+          <VerificationModal
+            cell_count={6}
+            handleClose={handleClosVerificationModal}
+          />
+        </>
+      ) : (
+        <></>
+      )}
+
       <Image source={logo} style={[styles.imgae]} />
       <Text style={[styles.title, { color: "#55AD9B" }]}>
         Create an{" "}
@@ -34,6 +57,7 @@ const RegisterScreen = () => {
             style={[styles.input]}
             placeholder="Password"
             placeholderTextColor="gray"
+            secureTextEntry={true}
           />
           <AntDesign name="lock" size={18} color="gray" />
         </View>
@@ -42,15 +66,14 @@ const RegisterScreen = () => {
             style={[styles.input]}
             placeholder="Confirm your password"
             placeholderTextColor="gray"
+            secureTextEntry={true}
           />
           <AntDesign name="lock" size={18} color="gray" />
         </View>
       </View>
       <View style={[styles.container]}>
         <TouchableOpacity
-          onPress={() => {
-            nav.navigate("Onboard" as never);
-          }}
+          onPress={handleSignUp}
           style={[styles.signUpContainer]}
         >
           <Text style={[styles.signUpText]}>Sign Up</Text>
@@ -118,5 +141,14 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     padding: 10,
+  },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 10,
   },
 });

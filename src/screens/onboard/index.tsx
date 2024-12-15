@@ -14,13 +14,16 @@ import ChallengeReassure from "./ChallengeReassure";
 import RateEnglish from "./RateEnglish";
 import ChooseWhereToImp from "./ChooseWhereToImp";
 import HowOften from "./HowOften";
+import { useAuth } from "../../context/AuthContext";
 const Onboard = () => {
+  const { fakeLogIn } = useAuth();
   const [step, setStep] = useState<number>(1);
   const [challenge, setChallenge] = useState<string>("");
 
   const nav = useNavigation();
   useEffect(() => {
     if (step === totalStep + 1) {
+      fakeLogIn();
       nav.navigate("HomeTab" as never);
     }
   }, [step]);

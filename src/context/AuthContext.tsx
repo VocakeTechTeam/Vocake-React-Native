@@ -8,6 +8,7 @@ type AUTHTYPE = {
   isAuth: boolean;
   login: (email: string, password: string) => void;
   logout: () => void;
+  fakeLogIn: () => void;
 };
 
 const AuthContext = createContext<AUTHTYPE>({} as AUTHTYPE);
@@ -57,8 +58,11 @@ export const AuthContextProvider = ({
     AsyncStorage.removeItem("userToken");
     setIsAuth(false);
   };
+  const fakeLogIn = () => {
+    setIsAuth(true);
+  };
   return (
-    <AuthContext.Provider value={{ isAuth, login, logout }}>
+    <AuthContext.Provider value={{ isAuth, login, logout, fakeLogIn }}>
       {loading ? <ActivityIndicator style={{ top: "50%" }} /> : children}
     </AuthContext.Provider>
   );

@@ -11,6 +11,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Onboard from "./screens/onboard";
 import DictionaryScreen from "./screens/DictionaryScreen";
 import { useAuth } from "./context/AuthContext";
+import VerificationScreen from "./screens/VerificationScreen";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -73,6 +74,11 @@ export const Navigator = () => {
 
   return (
     <Stack.Navigator>
+      {/* <Stack.Screen
+        options={{ headerShown: false }}
+        name="Verification"
+        component={VerificationScreen}
+      /> */}
       {!isAuth ? (
         <>
           <Stack.Screen
