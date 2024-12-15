@@ -12,26 +12,30 @@ import googleLogo from "../../assets/google.png";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import Config from "react-native-config";
 import { useAuth } from "../context/AuthContext";
-import { REACT_APP_VOCAKE_API } from "@env";
+import { useState } from "react";
+import { ActivityIndicator } from "react-native";
+
 type LoginScreenProps = {
   navigation: NavigationProp<any>;
 };
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const { login } = useAuth();
-  console.log(REACT_APP_VOCAKE_API);
+  const [isloading, setLoading] = useState<boolean>(false);
+
   const nav = useNavigation();
 
   const handleLogin = async () => {
+    setLoading(true);
     await login("henryhoangduong@gmail.com", "1234");
-    // navigation.navigate("HomeTab");
+    setLoading(false);
   };
 
   const handleSignUp = () => {
     nav.navigate("Register" as never);
   };
+  if (isloading) return <ActivityIndicator style={{ top: "50%" }} />;
 
   return (
     <View style={[styles.root]}>

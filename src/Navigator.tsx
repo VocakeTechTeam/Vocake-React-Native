@@ -10,9 +10,9 @@ import Feather from "@expo/vector-icons/Feather";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Onboard from "./screens/onboard";
 import DictionaryScreen from "./screens/DictionaryScreen";
+import { useAuth } from "./context/AuthContext";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
@@ -69,30 +69,35 @@ const BottomTabNavigator = () => {
 };
 
 export const Navigator = () => {
+  const { isAuth } = useAuth();
+
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="LoginScreen"
-        component={LoginScreen}
-      />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="HomeTab"
-        component={BottomTabNavigator}
-      />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="Register"
-        component={RegisterScreen}
-      />
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Onboard"
-        component={Onboard}
-      />
+      {!isAuth ? (
+        <>
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="LoginScreen"
+            component={LoginScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Register"
+            component={RegisterScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Onboard"
+            component={Onboard}
+          />
+        </>
+      ) : (
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="HomeTab"
+          component={BottomTabNavigator}
+        />
+      )}
     </Stack.Navigator>
   );
 };

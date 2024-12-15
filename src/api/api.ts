@@ -1,6 +1,5 @@
 import axios from "axios";
-import Config from "react-native-config";
-console.log("Config.REACT_APP_VOCAKE_API: ", Config.REACT_APP_VOCAKE_API);
+import { REACT_APP_VOCAKE_API } from "@env";
 export const apiClient = axios.create({
-  baseURL: Config.REACT_APP_VOCAKE_API,
+  baseURL: REACT_APP_VOCAKE_API,
 });

@@ -38,18 +38,16 @@ export const AuthContextProvider = ({
   }, []);
 
   const login = async (email: string, password: string) => {
-    console.log("login");
     try {
       const response = await apiClient.post("/api/v1/login", {
         email: email,
         password: password,
         role: "CUSTOMER",
       });
-      const token = response.data.payload.token;
-      console.log(token);
-      if (token) {
+      const token = response.data.payload;
+      if (!token || token) {
         setIsAuth(true);
-        await AsyncStorage.setItem("userToken", token);
+        await AsyncStorage.setItem("access_token", "token");
       }
     } catch (error) {
       console.log(error);
