@@ -17,7 +17,6 @@ const useSettings = (): UseSettings => {
   }, []);
 
   const getStoredEmail = async (): Promise<string> => {
-    // Simulate an async operation, e.g., fetching from local storage or an API
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve("user@example.com"); // Example email

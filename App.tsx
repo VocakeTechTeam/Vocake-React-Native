@@ -1,11 +1,14 @@
-import { StyleSheet } from "react-native";
 import { Navigator } from "./src/Navigator";
 import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { AuthContextProvider } from "./src/context/AuthContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigator />
-    </NavigationContainer>
+    <AuthContextProvider>
+      <NavigationContainer>
+        <Navigator />
+      </NavigationContainer>
+    </AuthContextProvider>
   );
 }

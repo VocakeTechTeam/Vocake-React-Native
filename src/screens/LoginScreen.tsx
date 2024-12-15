@@ -13,18 +13,20 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { NavigationProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import Config from "react-native-config";
-
+import { useAuth } from "../context/AuthContext";
+import { REACT_APP_VOCAKE_API } from "@env";
 type LoginScreenProps = {
   navigation: NavigationProp<any>;
 };
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
-  const REACT_APP_VOCAKE_API = Config.REACT_APP_VOCAKE_API;
-
+  const { login } = useAuth();
+  console.log(REACT_APP_VOCAKE_API);
   const nav = useNavigation();
 
-  const handleLogin = () => {
-    navigation.navigate("HomeTab");
+  const handleLogin = async () => {
+    await login("henryhoangduong@gmail.com", "1234");
+    // navigation.navigate("HomeTab");
   };
 
   const handleSignUp = () => {
@@ -52,6 +54,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
             style={[styles.input]}
             placeholder="Password"
             placeholderTextColor="gray"
+            secureTextEntry={true}
           />
           <AntDesign name="lock" size={18} color="gray" />
         </View>
