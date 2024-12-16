@@ -27,6 +27,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: () => (
             <MaterialCommunityIcons name="notebook" size={24} color="black" />
           ),
+          headerShown: true,
         }}
         component={DictionaryScreen}
       />
